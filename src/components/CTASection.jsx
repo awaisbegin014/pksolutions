@@ -22,7 +22,7 @@ export default function CTASection({
             {title}
           </h2>
           {description && (
-            <p className="mt-4 max-w-xl text-base sm:text-lg">{description}</p>
+            <p className="mt-4 max-w-xl text-base text-brand-slate sm:text-lg">{description}</p>
           )}
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <Button to="/careers" variant="hero">

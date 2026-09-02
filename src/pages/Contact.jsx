@@ -1,35 +1,48 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock } from 'lucide-react'
-import SectionHeading from '../components/SectionHeading'
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import Button from '../components/Button'
 import CTASection from '../components/CTASection'
+import yMark from '../assets/y-mark.png'
 
-const infoCards = [
+const contactDetails = [
   {
-    icon: MapPin,
-    title: 'Visit Us',
-    lines: ['Shahrah-e-Faisal, Karachi', 'Sindh, Pakistan'],
+    icon: Mail,
+    title: 'Email',
+    lines: ['hello@theyellowsolutions.pk'],
   },
   {
     icon: Phone,
-    title: 'Call Us',
-    lines: ['+92 300 0000000', '+92 21 0000000'],
+    title: 'Phone',
+    lines: ['+92 300 0000000'],
   },
   {
-    icon: Mail,
-    title: 'Email Us',
-    lines: ['hello@theyellowsolutions.pk', 'careers@theyellowsolutions.pk'],
-  },
-  {
-    icon: Clock,
-    title: 'Working Hours',
-    lines: ['Mon – Fri: 10am – 7pm', 'Sat: 11am – 4pm'],
+    icon: MapPin,
+    title: 'Address',
+    lines: ['Shahrah-e-Faisal, Karachi, Sindh, PK'],
   },
 ]
 
+/* =========================================================
+   DECORATIVE CONTACT MARK
+========================================================= */
+
+function ContactMark() {
+  return (
+    <div className="relative flex h-56 w-56 items-center justify-center sm:h-72 sm:w-72 lg:h-80 lg:w-80">
+      <div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-brand-yellow/20 blur-3xl" />
+
+      <img
+        src={yMark}
+        alt="Yellow Solutions"
+        className="h-full w-full animate-[float_5s_ease-in-out_infinite] object-contain"
+      />
+    </div>
+  )
+}
+
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (e) => {
@@ -43,72 +56,98 @@ export default function Contact() {
 
   return (
     <>
-      {/* PAGE HEADER */}
-      <section className="relative overflow-hidden bg-brand-mist py-20 sm:py-28">
+      {/* =====================================================
+          PAGE HEADER
+      ===================================================== */}
+
+      <section className="relative overflow-hidden bg-brand-mist py-16 sm:py-24">
         <div
-          className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brand-yellow/25 blur-3xl"
+          className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brand-yellow/20 blur-3xl"
           aria-hidden="true"
         />
-        <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
-          <Reveal className="mx-auto flex flex-col items-center">
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-line bg-white px-4 py-1.5 text-xs font-display font-semibold uppercase tracking-[0.14em] text-brand-ink">
-              <span className="h-2 w-2 rounded-full bg-brand-yellow" />
-              Contact Us
-            </span>
-            <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-brand-ink sm:text-5xl">
-              Let's build something great together.
+
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-2 lg:px-8">
+          <Reveal>
+            <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-brand-ink sm:text-6xl">
+              <span className="text-brand-yellow">Contact</span> Us
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-brand-slate sm:text-lg">
-              Have a project in mind or just want to say hello? Reach out and our team will get back
-              to you within one business day.
-            </p>
+          </Reveal>
+
+          <Reveal delay={100} className="flex justify-center lg:justify-end">
+            <ContactMark />
           </Reveal>
         </div>
       </section>
 
-      {/* CONTACT INFO CARDS */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {infoCards.map((card, i) => (
-              <Reveal key={card.title} delay={i * 70}>
-                <div className="flex h-full flex-col rounded-xl2 border border-brand-line bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-yellow hover:shadow-cardHover">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-yellowSoft text-brand-ink">
-                    <card.icon className="h-6 w-6" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="mb-2 font-display text-lg font-semibold text-brand-ink">{card.title}</h3>
-                  {card.lines.map((line) => (
-                    <p key={line} className="text-[15px] leading-relaxed text-brand-slate">
-                      {line}
-                    </p>
-                  ))}
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* =====================================================
+          GET IN TOUCH + MESSAGE FORM
+      ===================================================== */}
 
-      {/* CONTACT FORM + MAP */}
-      <section className="bg-brand-mist py-20 sm:py-28">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-5 lg:px-8">
-          <Reveal className="lg:col-span-3">
-            <div className="rounded-xl2 border border-brand-line bg-white p-6 shadow-card sm:p-10">
-              <SectionHeading eyebrow="Send A Message" title="Tell us about your project" />
+      <section className="bg-white pt-14 pb-4 sm:pt-20 sm:pb-6">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 lg:grid-cols-5 lg:gap-16 lg:px-8">
+
+          {/* LEFT — CONTACT DETAILS */}
+
+          <Reveal className="lg:col-span-2">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl">
+              Let&apos;s Get In Touch
+            </h2>
+
+            <div className="mt-10 flex flex-col gap-8">
+              {contactDetails.map((detail) => (
+                <div key={detail.title} className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-brand-yellow text-brand-yellowDark">
+                    <detail.icon className="h-5 w-5" strokeWidth={1.75} />
+                  </div>
+
+                  <div>
+                    <h3 className="font-display text-lg font-semibold text-brand-ink">
+                      {detail.title}
+                    </h3>
+                    {detail.lines.map((line) => (
+                      <p key={line} className="text-[15px] leading-relaxed text-brand-slate">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* RIGHT — MESSAGE FORM */}
+
+          <Reveal delay={100} className="lg:col-span-3">
+            <div className="rounded-xl2 bg-brand-mist p-8 sm:p-12">
+              <div className="text-center">
+                <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-brand-ink sm:text-3xl">
+                  Leave A Message
+                </h2>
+
+                <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-brand-slate sm:text-base">
+                  Fill the form below and leave a message for us. Our
+                  representative will get back to you and discuss your
+                  queries.
+                </p>
+              </div>
+
               {submitted ? (
-                <div className="mt-8 flex flex-col items-center rounded-xl2 border border-brand-line bg-brand-mist p-10 text-center">
+                <div className="mt-10 flex flex-col items-center rounded-xl2 border border-brand-line bg-white p-10 text-center">
                   <CheckCircle2 className="h-12 w-12 text-brand-yellowDark" strokeWidth={1.5} />
-                  <h3 className="mt-4 font-display text-xl font-semibold text-brand-ink">Message sent!</h3>
+                  <h3 className="mt-4 font-display text-xl font-semibold text-brand-ink">
+                    Message sent!
+                  </h3>
                   <p className="mt-2 max-w-sm text-sm text-brand-slate">
-                    Thanks for reaching out — a member of our team will be in touch shortly.
+                    Thanks for reaching out — a member of our team will be in
+                    touch shortly.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="mt-8">
+                <form onSubmit={handleSubmit} className="mt-10">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div className="flex flex-col gap-2">
                       <label htmlFor="c-name" className="text-sm font-medium text-brand-ink">
-                        Full Name
+                        Name
                       </label>
                       <input
                         id="c-name"
@@ -116,13 +155,14 @@ export default function Contact() {
                         required
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="Your full name"
+                        placeholder="Name"
                         className="rounded-xl border border-brand-line bg-white px-4 py-3 text-sm text-brand-ink outline-none transition-colors focus:border-brand-yellow"
                       />
                     </div>
+
                     <div className="flex flex-col gap-2">
                       <label htmlFor="c-email" className="text-sm font-medium text-brand-ink">
-                        Email Address
+                        Email
                       </label>
                       <input
                         id="c-email"
@@ -131,24 +171,12 @@ export default function Contact() {
                         required
                         value={form.email}
                         onChange={handleChange}
-                        placeholder="you@email.com"
+                        placeholder="Email"
                         className="rounded-xl border border-brand-line bg-white px-4 py-3 text-sm text-brand-ink outline-none transition-colors focus:border-brand-yellow"
                       />
                     </div>
                   </div>
-                  <div className="mt-6 flex flex-col gap-2">
-                    <label htmlFor="c-subject" className="text-sm font-medium text-brand-ink">
-                      Subject
-                    </label>
-                    <input
-                      id="c-subject"
-                      name="subject"
-                      value={form.subject}
-                      onChange={handleChange}
-                      placeholder="What's this about?"
-                      className="rounded-xl border border-brand-line bg-white px-4 py-3 text-sm text-brand-ink outline-none transition-colors focus:border-brand-yellow"
-                    />
-                  </div>
+
                   <div className="mt-6 flex flex-col gap-2">
                     <label htmlFor="c-message" className="text-sm font-medium text-brand-ink">
                       Message
@@ -156,46 +184,21 @@ export default function Contact() {
                     <textarea
                       id="c-message"
                       name="message"
-                      rows={5}
+                      rows={6}
                       required
                       value={form.message}
                       onChange={handleChange}
-                      placeholder="Tell us a little about what you need..."
+                      placeholder="Message"
                       className="resize-none rounded-xl border border-brand-line bg-white px-4 py-3 text-sm text-brand-ink outline-none transition-colors focus:border-brand-yellow"
                     />
                   </div>
-                  <Button type="submit" variant="secondary" className="mt-8 w-full sm:w-auto">
-                    Send Message
+
+                  <Button type="submit" variant="secondary" className="mt-8">
+                    Submit
                     <Send className="h-4 w-4" strokeWidth={1.75} />
                   </Button>
                 </form>
               )}
-            </div>
-          </Reveal>
-
-          <Reveal delay={100} className="lg:col-span-2">
-            <div className="flex h-full flex-col overflow-hidden rounded-xl2 border border-brand-line bg-white shadow-card">
-              <div className="flex flex-1 flex-col items-center justify-center gap-3 bg-brand-yellowSoft p-10 text-center">
-                <MapPin className="h-10 w-10 text-brand-ink" strokeWidth={1.5} />
-                <p className="font-display text-lg font-semibold text-brand-ink">Find Our Office</p>
-                <p className="max-w-xs text-sm text-brand-slate">
-                  Shahrah-e-Faisal, Karachi, Sindh, Pakistan — map preview coming soon.
-                </p>
-              </div>
-              <div className="border-t border-brand-line p-8">
-                <h3 className="font-display text-lg font-semibold text-brand-ink">Prefer to talk directly?</h3>
-                <p className="mt-2 text-sm leading-relaxed text-brand-slate">
-                  Call us or drop an email and we'll set up a time that works for you.
-                </p>
-                <div className="mt-5 flex flex-col gap-3 text-sm text-brand-ink">
-                  <span className="flex items-center gap-2">
-                    <Phone className="h-4 w-4 text-brand-yellowDark" /> +92 300 0000000
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 text-brand-yellowDark" /> hello@theyellowsolutions.pk
-                  </span>
-                </div>
-              </div>
             </div>
           </Reveal>
         </div>
