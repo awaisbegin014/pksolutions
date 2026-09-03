@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
 import logo from '../assets/logo-light.png'
 import { services as allServices } from '../data/servicesData'
 
@@ -13,10 +13,9 @@ const explore = [
 const services = allServices.map((service) => ({ label: service.title, to: '/services/' + service.id }))
 
 const socials = [
-  { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+  { icon: Facebook, href: 'https://www.facebook.com/share/19f5HPxbxh/', label: 'Facebook' },
+  { icon: Instagram, href: 'https://www.instagram.com/theyellowsolutions?igsi=MXNuNndrbzJlcDg2MA==', label: 'Instagram' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/yellow-solutionss/', label: 'LinkedIn' },
 ]
 
 export default function Footer() {
