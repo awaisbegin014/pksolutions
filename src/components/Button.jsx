@@ -7,12 +7,16 @@ const variants = {
   primary:
     'bg-brand-ink text-white hover:bg-brand-yellow hover:text-brand-ink px-7 py-3.5 text-[15px] shadow-sm hover:shadow-cardHover',
   secondary:
-    'bg-brand-yellow text-brand-ink hover:bg-[#FFE066] px-7 py-3.5 text-[15px] shadow-sm hover:shadow-cardHover',  outline:
+    'bg-brand-yellow text-brand-ink hover:bg-[#FFE066] px-7 py-3.5 text-[15px] shadow-sm hover:shadow-cardHover',
+  outline:
     'border-2 border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-white px-7 py-3 text-[15px]',
+  outlineYellow:
+    'border-2 border-brand-ink text-brand-ink hover:bg-brand-yellow hover:border-brand-yellow hover:text-brand-ink px-7 py-3 text-[15px]',
   ghost:
     'text-brand-ink hover:text-brand-yellowDark px-2 py-1 text-[15px]',
   hero:
-    'bg-brand-yellow text-brand-ink hover:bg-[#FFE066] px-7 py-3.5 text-[15px] shadow-sm hover:shadow-cardHover',}
+    'bg-brand-yellow text-brand-ink hover:bg-[#FFE066] px-7 py-3.5 text-[15px] shadow-sm hover:shadow-cardHover',
+}
 
 export default function Button({
   to,

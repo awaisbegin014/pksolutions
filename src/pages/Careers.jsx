@@ -711,7 +711,7 @@ export default function Careers() {
           HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative flex min-h-[calc(100dvh-72px)] flex-col justify-center overflow-hidden bg-white sm:min-h-[calc(100dvh-80px)] lg:min-h-[calc(100dvh-96px)]">
         <div
           className="
             pointer-events-none
@@ -747,13 +747,13 @@ export default function Careers() {
               items-center
               justify-center
               gap-2
-              pt-8
+              pt-4
               sm:gap-4
-              sm:pt-10
+              sm:pt-6
               md:gap-6
-              md:pt-12
+              md:pt-8
               lg:gap-8
-              lg:pt-16
+              lg:pt-10
             "
           >
 
@@ -1012,9 +1012,13 @@ export default function Careers() {
             className="
               relative
               z-10
+              mx-auto
               mt-2
+              w-full
+              max-w-[820px]
               sm:mt-4
               lg:mt-5
+              lg:max-w-[720px]
             "
           >
             <HeroIllustration />

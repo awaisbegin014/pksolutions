@@ -7,7 +7,7 @@ export const jobs = [
     compensation: "Market Competitive Salary + Commission",
     timings: "10:00 AM to 07:00 PM (Mon-Fri)",
     workMode: "On-Site",
-    location: "Shahrah-e-Faisal, Karachi",
+    location: "A4, Gulistan-e-Johar , Block 04, Karachi",
     about:
       "We are looking for a motivated Business Developer to generate qualified leads through outbound cold calling, build relationships with potential clients, and drive revenue growth for the agency.",
     responsibilities: [
@@ -33,7 +33,7 @@ export const jobs = [
     compensation: "Market Competitive Salary",
     timings: "06:00 PM to 03:00 AM (Mon-Fri)",
     workMode: "On-Site",
-    location: "Shahrah-e-Faisal, Karachi",
+    location: "A4, Gulistan-e-Johar , Block 04, Karachi",
     about:
       "We are looking for a Lead Generation Specialist to research, identify and qualify potential clients across various platforms to fuel our sales pipeline.",
     responsibilities: [
@@ -58,7 +58,7 @@ export const jobs = [
     compensation: "Market Competitive Salary + Commission",
     timings: "06:00 PM to 03:00 AM (Mon-Fri)",
     workMode: "On-Site",
-    location: "Shahrah-e-Faisal, Karachi",
+    location: "A4, Gulistan-e-Johar , Block 04, Karachi",
     about:
       "We are looking for a Business Developer to handle inbound and outbound client conversations over chat platforms (Upwork, Fiverr, LinkedIn) and convert them into paying clients.",
     responsibilities: [
@@ -83,7 +83,7 @@ export const jobs = [
     compensation: "Market Competitive Salary + Commission",
     timings: "06:00 PM to 03:00 AM (Mon-Fri)",
     workMode: "On-Site",
-    location: "Shahrah-e-Faisal, Karachi",
+    location: "A4, Gulistan-e-Johar , Block 04, Karachi",
     about:
       "We are looking for a Platform-Based Sales Agent to manage and grow our presence on Fiverr, Upwork and Freelancer — from bidding to closing deals.",
     responsibilities: [

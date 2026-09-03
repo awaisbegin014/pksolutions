@@ -11,6 +11,7 @@ export default function SectionHeading({
   description,
   align = 'left',
   light = false,
+  className = '',
 }) 
 
 {
@@ -22,7 +23,7 @@ export default function SectionHeading({
     : 'items-start text-left'
 
   return (
-    <Reveal className={`flex flex-col ${alignClasses} max-w-2xl`}>
+    <Reveal className={`flex flex-col ${alignClasses} max-w-2xl ${className}`}>
       {eyebrow && (
         <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-line bg-white px-4 py-1.5 text-xs font-nav font-semibold uppercase tracking-[0.14em] text-brand-ink">          <span className="h-2 w-2 rounded-full bg-brand-yellow" />
           {eyebrow}

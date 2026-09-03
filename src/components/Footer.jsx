@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
 import logo from '../assets/logo-light.png'
+import { services as allServices } from '../data/servicesData'
 
 const explore = [
   { label: 'Home', to: '/' },
@@ -9,13 +10,7 @@ const explore = [
   { label: 'Contact Us', to: '/contact' },
 ]
 
-const services = [
-  'Digital Marketing',
-  'Web Development',
-  'Brand Identity',
-  'Social Media Growth',
-  'Paid Advertising',
-]
+const services = allServices.map((service) => ({ label: service.title, to: '/services/' + service.id }))
 
 const socials = [
   { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
@@ -69,8 +64,10 @@ export default function Footer() {
             <h4 className="font-display text-sm font-semibold uppercase tracking-[0.14em] text-white">Services</h4>
             <ul className="mt-5 space-y-3">
               {services.map((item) => (
-                <li key={item} className="text-sm">
-                  {item}
+                <li key={item.to}>
+                  <Link to={item.to} className="text-sm transition-colors hover:text-brand-yellow">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -81,11 +78,11 @@ export default function Footer() {
             <ul className="mt-5 space-y-4">
               <li className="flex items-start gap-3 text-sm">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow" strokeWidth={1.75} />
-                Karachi, Pakistan
+                A4, Gulistan-e-Johar , Block 04, Karachi
               </li>
               <li className="flex items-start gap-3 text-sm">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow" strokeWidth={1.75} />
-                +92 300 0000000
+                +92 319 1233945
               </li>
               <li className="flex items-start gap-3 text-sm">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand-yellow" strokeWidth={1.75} />
@@ -107,8 +104,12 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs sm:flex-row lg:px-8">
           <p>© {new Date().getFullYear()} The Yellow Solutions. All rights reserved.</p>
           <div className="flex gap-6">
-            <span className="cursor-default">Privacy Policy</span>
-            <span className="cursor-default">Terms of Service</span>
+            <Link to="/privacy-policy" className="transition-colors hover:text-brand-yellow">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="transition-colors hover:text-brand-yellow">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

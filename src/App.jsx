@@ -8,6 +8,10 @@ import Careers from './pages/Careers'
 import JobDetail from './pages/JobDetail'
 import Contact from './pages/Contact'
 import JobApply from './pages/JobApply'
+import Services from './pages/Services'
+import ServiceDetail from './pages/Servicedetail'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
 
 export default function App() {
   return (
@@ -23,6 +27,10 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers/:slug" element={<JobDetail />} />
           <Route path="/careers/:slug/apply" element={<JobApply />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
       </main>
       <Footer />

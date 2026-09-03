@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import Button from '../components/Button'
@@ -14,12 +15,12 @@ const contactDetails = [
   {
     icon: Phone,
     title: 'Phone',
-    lines: ['+92 300 0000000'],
+    lines: ['+92 319 1233945'],
   },
   {
     icon: MapPin,
     title: 'Address',
-    lines: ['Shahrah-e-Faisal, Karachi, Sindh, PK'],
+    lines: ['A4, Gulistan-e-Johar , Block 04, Karachi'],
   },
 ]
 
@@ -42,7 +43,13 @@ function ContactMark() {
 }
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [searchParams] = useSearchParams()
+  const prefilledService = searchParams.get('service') || ''
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    message: prefilledService ? `I'm interested in ${prefilledService}. ` : '',
+  })
   const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (e) => {
@@ -60,13 +67,13 @@ export default function Contact() {
           PAGE HEADER
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-brand-mist py-16 sm:py-24">
+      <section className="relative flex min-h-[calc(100dvh-72px)] items-center overflow-hidden bg-brand-mist py-16 sm:min-h-[calc(100dvh-80px)] sm:py-24 lg:min-h-[calc(100dvh-96px)]">
         <div
           className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brand-yellow/20 blur-3xl"
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-2 lg:px-8">
+        <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-2 lg:px-8">
           <Reveal>
             <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-brand-ink sm:text-6xl">
               <span className="text-brand-yellow">Contact</span> Us
@@ -129,6 +136,14 @@ export default function Contact() {
                   representative will get back to you and discuss your
                   queries.
                 </p>
+
+                {prefilledService && (
+                  <span className="mx-auto mt-4 inline-flex items-center gap-2 rounded-full border border-brand-yellow bg-white px-4 py-1.5 text-xs font-nav font-semibold uppercase tracking-[0.1em] text-brand-ink">
+                    <span className="h-2 w-2 rounded-full bg-brand-yellow" />
+                    Regarding: {prefilledService}
+                  </span>
+                )}
+
               </div>
 
               {submitted ? (
@@ -206,6 +221,8 @@ export default function Contact() {
 
       <CTASection
         mode="careers"
+        showContactButton={false}
+        paddingClassName="pt-7 pb-20 sm:pt-9 sm:pb-24"
         title="Rather join the team than hire us?"
         description="We're always looking for great people to grow with. Check out our open roles."
       />

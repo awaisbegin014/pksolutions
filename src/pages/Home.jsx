@@ -12,7 +12,7 @@ import yMark from '../assets/y-mark.png'
 const services = [
   { title: 'Digital Marketing', description: 'Full-funnel campaigns across search, social and content that turn attention into revenue. We plan, launch and optimize every touchpoint so your brand shows up where your customers already are.' },
   { title: 'Web Development', description: 'Fast, responsive websites and web apps built to convert visitors into customers. We focus on clean design, solid performance and a smooth user experience across every device.' },
-  { title: 'Brand Identity', description: 'Logos, guidelines and visual systems that make your business instantly recognizable. We build a consistent identity that carries across your website, packaging and social presence.' },
+  { title: 'Application Development', description: 'Native and cross-platform mobile apps built for performance, from first prototype to app store launch. We design intuitive interfaces and build on scalable foundations, so your app works as well as it looks.' },
   { title: 'Social Media Growth', description: 'Content and community strategy that builds a loyal, engaged audience around your brand. We plan calendars, create content and track what actually drives engagement.' },
   { title: 'Paid Advertising', description: 'Data-driven ad management across Meta, Google and TikTok focused on measurable ROI. We test, optimize and scale campaigns so every rupee spent works harder.' },
   { title: 'Growth Strategy', description: 'Research-backed roadmaps that align your marketing, product and sales for real growth. We identify where the biggest opportunities are and build a plan to capture them.' },
@@ -68,7 +68,7 @@ const process = [
 ]
 
 const faqs = [
-  { q: 'What services does The Yellow Solutions offer?', a: 'We handle digital marketing, web development, brand identity, social media growth and paid advertising — everything under one roof.' },
+  { q: 'What services does The Yellow Solutions offer?', a: 'We handle digital marketing, web development, application development, social media growth and paid advertising — everything under one roof.' },
   { q: 'How long does a typical project take?', a: 'Timelines vary by scope, but most website and branding projects run 4–8 weeks, with marketing engagements running monthly.' },
   { q: 'Do you work with businesses outside Pakistan?', a: "Yes, we work with clients locally and internationally, coordinating across time zones as needed." },
   { q: 'How do I get started?', a: "Reach out through our Contact page and we'll schedule a short discovery call to understand your goals." },
@@ -90,51 +90,53 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 px-6 pb-12 pt-4 sm:pt-6 lg:grid-cols-2 lg:px-8 lg:pb-16 lg:pt-8">
-          <Reveal>
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-line bg-white px-4 py-1.5 text-xs font-nav font-semibold uppercase tracking-[0.14em] text-brand-ink">
-              <span className="h-2 w-2 rounded-full bg-brand-yellow" />
-              Digital Growth Partner
-            </span>
-            <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-brand-ink sm:text-5xl lg:text-6xl">
-              We help brands
-              <span className="relative mx-2 inline-block whitespace-nowrap">
-                grow
-                <svg
-                  className="absolute -bottom-1 left-0 w-full"
-                  height="12"
-                  viewBox="0 0 120 12"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path d="M2 9C25 3 95 3 118 9" stroke="#FFC107" strokeWidth="5" strokeLinecap="round" />
-                </svg>
+      <section className="flex min-h-[calc(100dvh-72px)] flex-col bg-white sm:min-h-[calc(100dvh-80px)] lg:min-h-[calc(100dvh-96px)]">
+        <div className="flex flex-1 items-center">
+          <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 py-10 sm:py-12 lg:grid-cols-2 lg:px-8 lg:py-16">
+            <Reveal>
+              <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-line bg-white px-4 py-1.5 text-xs font-nav font-semibold uppercase tracking-[0.14em] text-brand-ink">
+                <span className="h-2 w-2 rounded-full bg-brand-yellow" />
+                Digital Growth Partner
               </span>
-              <span className="text-brand-yellow">louder, faster, and smarter.</span>
-            </h1>
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-brand-slate sm:text-lg">
-              The Yellow Solutions is a digital growth partner for brands that want more than
-              services — we build strategy, design and technology into one connected engine for growth.
-            </p>
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Button to="/contact" variant="hero">
-                Get In Touch
-                <ArrowUpRight className="h-4 w-4" />
-              </Button>
-              <Button to="/careers" variant="hero" className="!bg-white !text-brand-ink hover:!bg-[#FFE066] hover:!text-brand-ink border border-brand-line">
-                Join Our Team
-              </Button>
-            </div>
-          </Reveal>
+              <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-brand-ink sm:text-5xl lg:text-6xl">
+                We help brands
+                <span className="relative mx-2 inline-block whitespace-nowrap">
+                  grow
+                  <svg
+                    className="absolute -bottom-1 left-0 w-full"
+                    height="12"
+                    viewBox="0 0 120 12"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 9C25 3 95 3 118 9" stroke="#FFC107" strokeWidth="5" strokeLinecap="round" />
+                  </svg>
+                </span>
+                <span className="text-brand-yellow">louder, faster, and smarter.</span>
+              </h1>
+              <p className="mt-6 max-w-lg text-base leading-relaxed text-brand-slate sm:text-lg">
+                The Yellow Solutions is a digital growth partner for brands that want more than
+                services — we build strategy, design and technology into one connected engine for growth.
+              </p>
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                <Button to="/contact" variant="hero">
+                  Get In Touch
+                  <ArrowUpRight className="h-4 w-4" />
+                </Button>
+                <Button to="/careers" variant="hero" className="!bg-white !text-brand-ink hover:!bg-[#FFE066] hover:!text-brand-ink border border-brand-line">
+                  Join Our Team
+                </Button>
+              </div>
+            </Reveal>
 
-          <Reveal delay={120} className="relative flex items-center justify-center lg:self-center">
-            <img
-              src={yMark}
-              alt="The Yellow Solutions"
-              className="w-full max-w-[160px] animate-float drop-shadow-2xl sm:max-w-[220px] lg:max-w-xs"
-            />
-          </Reveal>
+            <Reveal delay={120} className="relative flex items-center justify-center lg:self-center">
+              <img
+                src={yMark}
+                alt="The Yellow Solutions"
+                className="w-full max-w-[160px] animate-float drop-shadow-2xl sm:max-w-[220px] lg:max-w-xs"
+              />
+            </Reveal>
+          </div>
         </div>
 
         {/* Marquee strip */}
@@ -329,8 +331,8 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-12 sm:py-18">
-        <div className="mx-auto max-w-8xl px-6 lg:px-8">
+<section className="bg-white pt-12 pb-10 sm:pt-18 sm:pb-14">
+          <div className="mx-auto max-w-8xl px-6 lg:px-8">
           <SectionHeading eyebrow="FAQs" title={<>Frequently <span className="text-brand-yellow">Asked Questions</span></>} align="center" />
           <div className="mt-14 flex flex-col gap-5">
             {faqs.map((faq, i) => (
@@ -347,9 +349,11 @@ export default function Home() {
       </section>
 
       <CTASection
-        mode="careers"
-        title={<>We're growing — and we want you<br /><span className="text-brand-yellow">with us.</span></>} description="The Yellow Solutions is always looking for curious, driven people who want to build something great."
-      />
+  mode="careers"
+  paddingClassName="pt-10 pb-20 sm:pt-14 sm:pb-24"
+  title={<>We're growing — and we want you<br /><span className="text-brand-yellow">with us.</span></>}
+  description="The Yellow Solutions is always looking for curious, driven people who want to build something great."
+/>
     </>
   )
 }

@@ -100,8 +100,8 @@ export default function JobApply() {
           HERO
       ===================================================== */}
 
-            <section className="bg-gradient-to-r from-brand-yellow to-brand-yellowDark py-16 sm:py-20">
-                <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
+            <section className="flex min-h-[calc(100dvh-72px)] items-center bg-gradient-to-r from-brand-yellow to-brand-yellowDark py-16 sm:min-h-[calc(100dvh-80px)] sm:py-20 lg:min-h-[calc(100dvh-96px)]">
+                <div className="mx-auto w-full max-w-5xl px-6 text-center lg:px-8">
                     <Reveal>
                         <h1 className="font-display text-3xl font-bold text-brand-ink sm:text-4xl lg:text-5xl">
                             {job.title}

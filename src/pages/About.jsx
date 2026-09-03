@@ -774,8 +774,8 @@ export default function About() {
   return (
     <>
       {/* PAGE HEADER */}
-      <section className="bg-white py-8 sm:py-10">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-6 lg:grid-cols-2 lg:px-8">
+      <section className="flex min-h-[calc(100dvh-72px)] items-center bg-white py-8 sm:min-h-[calc(100dvh-80px)] sm:py-10 lg:min-h-[calc(100dvh-96px)]">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-6 lg:grid-cols-2 lg:px-8">
           <Reveal>
             <h1 className="font-display text-5xl font-bold tracking-tight text-brand-ink sm:text-6xl lg:text-7xl">
               About{' '}
@@ -807,143 +807,159 @@ export default function About() {
 
       {/* ABOUT US */}
       <section className="bg-white py-8 sm:py-10">
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+        <div className="mx-auto max-w-3xl px-6 text-center lg:max-w-6xl lg:px-8 lg:text-left">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-start">
 
-          <Reveal>
-            <SectionHeading
-              eyebrow="About Us"
-              align="center"
-              title={
-                <>
-                  Who we are and{' '}
-                  <span className="text-brand-yellow">
-                    what drives us
-                  </span>
-                </>
-              }
-            />
-          </Reveal>
-
-          <Reveal delay={80} className="mt-8">
-            <div className="mx-auto aspect-[4/3] w-full max-w-sm rounded-xl2 bg-white p-4">
-              <AboutUsIllustration />
-            </div>
-          </Reveal>
-
-          <Reveal delay={160} className="mt-8 text-left">
-            <p className="text-base leading-relaxed text-brand-slate">
-              The Yellow Solutions is committed to fostering a culture of continuous
-              learning, empowering our team to grow while setting the highest standards
-              for performance and success. We believe professional development should go
-              hand in hand with meaningful work, offering experiences that support personal
-              growth and a healthy work-life balance. Our team of skilled professionals
-              specializes in crafting effective digital marketing strategies and building
-              technology solutions that optimize processes, enhance efficiency, and drive
-              business growth.
-            </p>
-
-            <div className="mt-7 grid grid-cols-3 gap-4">
-              {aboutPoints.map((point) => (
-                <div
-                  key={point.title}
-                  className="relative overflow-hidden rounded-lg bg-gradient-to-br from-brand-yellowSoft/70 via-brand-yellowSoft/30 to-white p-5"
-                >
-                  <span className="absolute left-2 top-2 h-[calc(100%-1rem)] w-0.5 bg-gradient-to-b from-brand-yellow to-brand-yellow/10" />
-
-                  <div className="pl-4">
-                    <span className="font-display text-2xl font-bold text-brand-yellow/50">
-                      {point.number}
+            <Reveal className="lg:col-start-1 lg:row-start-1">
+              <SectionHeading
+                eyebrow="About Us"
+                align="center"
+                className="lg:items-start lg:text-left lg:mx-0"
+                title={
+                  <>
+                    Who we are and{' '}
+                    <span className="text-brand-yellow">
+                      what drives us
                     </span>
+                  </>
+                }
+              />
+            </Reveal>
 
-                    <p className="mt-1 font-display text-base font-semibold text-brand-ink">
-                      {point.title}
-                    </p>
-                  </div>
+            <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2">
+              <Reveal delay={80} className="mt-8 lg:mt-0">
+                <div className="mx-auto aspect-[4/3] w-full max-w-sm rounded-xl2 bg-white p-4">
+                  <AboutUsIllustration />
                 </div>
-              ))}
+              </Reveal>
+
+              <Reveal delay={200} className="mt-7">
+                <div className="grid grid-cols-3 gap-4">
+                  {aboutPoints.map((point) => (
+                    <div
+                      key={point.title}
+                      className="relative overflow-hidden rounded-lg bg-gradient-to-br from-brand-yellowSoft/70 via-brand-yellowSoft/30 to-white p-5"
+                    >
+                      <span className="absolute left-2 top-2 h-[calc(100%-1rem)] w-0.5 bg-gradient-to-b from-brand-yellow to-brand-yellow/10" />
+
+                      <div className="pl-4">
+                        <span className="font-display text-2xl font-bold text-brand-yellow/50">
+                          {point.number}
+                        </span>
+
+                        <p className="mt-1 font-display text-base font-semibold text-brand-ink">
+                          {point.title}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+
+            <Reveal delay={160} className="mt-8 text-left lg:col-start-1 lg:row-start-2 lg:mt-6">
+              <p className="text-base leading-relaxed text-brand-slate">
+                The Yellow Solutions is committed to fostering a culture of continuous
+                learning, empowering our team to grow while setting the highest standards
+                for performance and success. We believe professional development should go
+                hand in hand with meaningful work, offering experiences that support personal
+                growth and a healthy work-life balance. Our team of skilled professionals
+                specializes in crafting effective digital marketing strategies and building
+                technology solutions that optimize processes, enhance efficiency, and drive
+                business growth.
+              </p>
+            </Reveal>
+
+          </div>
         </div>
       </section>
 
 
       {/* WHO WE ARE */}
       <section className="bg-white py-8 sm:py-10">
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+        <div className="mx-auto max-w-3xl px-6 text-center lg:max-w-6xl lg:px-8 lg:text-left">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
 
-          <Reveal>
-            <SectionHeading
-              eyebrow="Who We Are"
-              align="center"
-              title={
-                <>
-                  A team built for how modern{' '}
-                  <span className="text-brand-yellow">
-                    brands grow
-                  </span>
-                </>
-              }
-            />
-          </Reveal>
+            <Reveal className="lg:col-start-2 lg:row-start-1">
+              <SectionHeading
+                eyebrow="Who We Are"
+                align="center"
+                className="lg:items-start lg:text-left lg:mx-0"
+                title={
+                  <>
+                    A team built for how modern{' '}
+                    <span className="text-brand-yellow">
+                      brands grow
+                    </span>
+                  </>
+                }
+              />
+            </Reveal>
 
-          <Reveal delay={80} className="mt-8">
-            <div className="mx-auto aspect-[4/3] w-full max-w-sm rounded-xl2 bg-white p-4">
-              <AutomationGrowthIllustration />
-            </div>
-          </Reveal>
+            <Reveal delay={80} className="mt-8 lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:mt-0">
+              <div className="mx-auto aspect-[4/3] w-full max-w-sm rounded-xl2 bg-white p-4">
+                <AutomationGrowthIllustration />
+              </div>
+            </Reveal>
 
-          <Reveal delay={160} className="mt-8 text-left">
-            <p className="text-base leading-relaxed text-brand-slate">
-              Our approach to combining digital marketing and automation empowers
-              businesses with forward-thinking strategies and intelligent technology,
-              driving growth, efficiency, and industry leadership. By leveraging
-              data-driven insights and automation-driven processes, we craft impactful
-              brand experiences, streamline operations, and unlock scalable solutions
-              that fuel every stage of the journey. Through deep client collaboration,
-              we develop tailored methodologies that enhance engagement, optimize
-              workflows, and position businesses at the forefront of innovation.
-            </p>
-          </Reveal>
+            <Reveal delay={160} className="mt-8 text-left lg:col-start-2 lg:row-start-2 lg:mt-6">
+              <p className="text-base leading-relaxed text-brand-slate">
+                Our approach to combining digital marketing and automation empowers
+                businesses with forward-thinking strategies and intelligent technology,
+                driving growth, efficiency, and industry leadership. By leveraging
+                data-driven insights and automation-driven processes, we craft impactful
+                brand experiences, streamline operations, and unlock scalable solutions
+                that fuel every stage of the journey. Through deep client collaboration,
+                we develop tailored methodologies that enhance engagement, optimize
+                workflows, and position businesses at the forefront of innovation.
+              </p>
+            </Reveal>
+
+          </div>
         </div>
       </section>
 
 
       {/* OUR VALUES */}
       <section className="bg-white py-8 sm:py-10">
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+        <div className="mx-auto max-w-3xl px-6 text-center lg:max-w-6xl lg:px-8 lg:text-left">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
 
-          <Reveal>
-            <SectionHeading
-              eyebrow="Our Values"
-              align="center"
-              title={
-                <>
-                  Every person here helps{' '}
-                  <span className="text-brand-yellow">
-                    shape the outcome
-                  </span>
-                </>
-              }
-            />
-          </Reveal>
+            <Reveal className="lg:col-start-1 lg:row-start-1">
+              <SectionHeading
+                eyebrow="Our Values"
+                align="center"
+                className="lg:items-start lg:text-left lg:mx-0"
+                title={
+                  <>
+                    Every person here helps{' '}
+                    <span className="text-brand-yellow">
+                      shape the outcome
+                    </span>
+                  </>
+                }
+              />
+            </Reveal>
 
-          <Reveal delay={80} className="mt-8">
-            <div className="mx-auto aspect-[4/3] w-full max-w-sm rounded-xl2 bg-white p-4">
-              <ValuesIllustration />
-            </div>
-          </Reveal>
+            <Reveal delay={80} className="mt-8 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:mt-0">
+              <div className="mx-auto aspect-[4/3] w-full max-w-sm rounded-xl2 bg-white p-4">
+                <ValuesIllustration />
+              </div>
+            </Reveal>
 
-          <Reveal delay={160} className="mt-8 text-left">
-            <p className="text-base leading-relaxed text-brand-slate">
-              We believe in empowering every individual to make an impact. Each person's
-              unique strengths and experiences contribute to the bigger picture, creating
-              a team that's greater than the sum of its parts. This diverse blend of
-              talents is what fuels our problem solving and drives the innovative
-              solutions we offer our clients. From strategy to execution, we see every
-              project as a chance to explore smarter, more scalable ways to grow — and
-              our ability to adapt quickly ensures we're always ahead of the curve.
-            </p>
-          </Reveal>
+            <Reveal delay={160} className="mt-8 text-left lg:col-start-1 lg:row-start-2 lg:mt-6">
+              <p className="text-base leading-relaxed text-brand-slate">
+                We believe in empowering every individual to make an impact. Each person's
+                unique strengths and experiences contribute to the bigger picture, creating
+                a team that's greater than the sum of its parts. This diverse blend of
+                talents is what fuels our problem solving and drives the innovative
+                solutions we offer our clients. From strategy to execution, we see every
+                project as a chance to explore smarter, more scalable ways to grow — and
+                our ability to adapt quickly ensures we're always ahead of the curve.
+              </p>
+            </Reveal>
+
+          </div>
         </div>
       </section>
 

@@ -172,13 +172,13 @@ export default function JobDetail() {
           HERO
       ===================================================== */}
 
-            <section className="relative overflow-hidden bg-brand-mist py-14 sm:py-20">
+            <section className="relative flex min-h-[calc(100dvh-72px)] items-center overflow-hidden bg-brand-mist py-14 sm:min-h-[calc(100dvh-80px)] sm:py-20 lg:min-h-[calc(100dvh-96px)]">
                 <div
                     className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brand-yellow/20 blur-3xl"
                     aria-hidden="true"
                 />
 
-                <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
                     <Reveal>
                         <Link
                             to="/careers"
