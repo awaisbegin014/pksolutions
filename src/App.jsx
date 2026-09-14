@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -25,12 +25,12 @@ export default function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/:slug" element={<JobDetail />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/careers/:slug" element={<JobDetail />} />
           <Route path="/careers/:slug/apply" element={<JobApply />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <Footer />
