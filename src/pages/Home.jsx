@@ -8,6 +8,11 @@ import CountUp from '../components/CountUp'
 import TeamCard from '../components/TeamCard'
 import FAQItem from '../components/FAQItem'
 import yMark from '../assets/y-mark.png'
+import ceoImg from '../assets/team/ceo.png'
+import gmImg from '../assets/team/general-manager.png'
+import hrImg from '../assets/team/hr-manager.png'
+import pmImg from '../assets/team/project-manager.png'
+import smmImg from '../assets/team/social-media-manager.png'
 
 const services = [
   { title: 'Digital Marketing', description: 'Full-funnel campaigns across search, social and content that turn attention into revenue. We plan, launch and optimize every touchpoint so your brand shows up where your customers already are.' },
@@ -33,10 +38,11 @@ const whyUs = [
 ]
 
 const team = [
-  { name: 'Ayesha Khan', role: 'Founder & CEO' },
-  { name: 'Bilal Ahmed', role: 'Head of Design' },
-  { name: 'Sara Malik', role: 'Head of Marketing' },
-  { name: 'Hamza Raza', role: 'Lead Developer' },
+  { name: 'CEO', image: ceoImg },
+  { name: 'General Manager', image: gmImg },
+  { name: 'HR Manager', image: hrImg },
+  { name: 'Project Manager', image: pmImg },
+  { name: 'Social Media Manager', image: smmImg },
 ]
 
 const growItems = [
@@ -260,9 +266,17 @@ export default function Home() {
             title={<>The team behind<br /><span className="text-brand-yellow">The Yellow Solutions</span></>}
             align="center"
           />
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member, i) => (
-              <TeamCard key={member.name} {...member} delay={i * 80} />
+          {/* CEO - First in one line */}
+          <div className="mt-12 flex justify-center">
+            <div className="w-full max-w-xs sm:w-72">
+              <TeamCard {...team[0]} delay={0} />
+            </div>
+          </div>
+
+          {/* All 4 team members below */}
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {team.slice(1).map((member, i) => (
+              <TeamCard key={member.name} {...member} delay={(i + 1) * 80} />
             ))}
           </div>
         </div>

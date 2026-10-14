@@ -16,6 +16,11 @@ import TeamCard from '../components/TeamCard'
 import CTASection from '../components/CTASection'
 import Reveal from '../components/Reveal'
 import yMark from '../assets/y-mark.png'
+import ceoImg from '../assets/team/ceo.png'
+import gmImg from '../assets/team/general-manager.png'
+import hrImg from '../assets/team/hr-manager.png'
+import pmImg from '../assets/team/project-manager.png'
+import smmImg from '../assets/team/social-media-manager.png'
 
 const aboutPoints = [
   { number: '01', title: 'Passion' },
@@ -81,10 +86,11 @@ const departments = [
 ]
 
 const team = [
-  { name: 'Ayesha Khan', role: 'Founder & CEO' },
-  { name: 'Bilal Ahmed', role: 'Head of Design' },
-  { name: 'Sara Malik', role: 'Head of Marketing' },
-  { name: 'Hamza Raza', role: 'Lead Developer' },
+  { name: 'CEO', image: ceoImg },
+  { name: 'General Manager', image: gmImg },
+  { name: 'HR Manager', image: hrImg },
+  { name: 'Project Manager', image: pmImg },
+  { name: 'Social Media Manager', image: smmImg },
 ]
 
 /* =========================================================
@@ -1046,12 +1052,23 @@ export default function About() {
             </Reveal>
           </div>
 
+          {/* CEO - First in one line */}
+          <div className="mt-12 flex justify-center">
+            <div className="w-full max-w-xs sm:w-72">
+              <TeamCard
+                {...team[0]}
+                delay={0}
+              />
+            </div>
+          </div>
+
+          {/* All 4 team members below */}
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member, i) => (
+            {team.slice(1).map((member, i) => (
               <TeamCard
                 key={member.name}
                 {...member}
-                delay={i * 80}
+                delay={(i + 1) * 80}
               />
             ))}
           </div>
