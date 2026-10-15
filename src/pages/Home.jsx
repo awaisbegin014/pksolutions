@@ -38,11 +38,11 @@ const whyUs = [
 ]
 
 const team = [
-  { name: 'CEO', image: ceoImg },
-  { name: 'General Manager', image: gmImg },
-  { name: 'HR Manager', image: hrImg },
-  { name: 'Project Manager', image: pmImg },
-  { name: 'Social Media Manager', image: smmImg },
+  { name: 'Ahan Ali', role: 'CEO', image: ceoImg },
+  { name: 'Hamza Iqbal', role: 'General Manager', image: gmImg },
+  { name: 'Raza Abbas', role: 'HR Manager', image: hrImg },
+  { name: 'Qazi Maaz', role: 'Project Manager', image: pmImg },
+  { name: 'Aarij Mohsin', role: 'Social Media Manager', image: smmImg },
 ]
 
 const growItems = [
@@ -266,18 +266,12 @@ export default function Home() {
             title={<>The team behind<br /><span className="text-brand-yellow">The Yellow Solutions</span></>}
             align="center"
           />
-          {/* CEO - First in one line */}
-          <div className="mt-12 flex justify-center">
-            <div className="w-full max-w-xs sm:w-72">
-              <TeamCard {...team[0]} delay={0} />
+          <div className="-mx-6 mt-12 overflow-x-auto px-6 pb-4 lg:mx-0 lg:px-0">
+            <div className="grid min-w-[1100px] grid-cols-5 gap-5">
+              {team.map((member, i) => (
+                <TeamCard key={member.name} {...member} delay={i * 80} />
+              ))}
             </div>
-          </div>
-
-          {/* All 4 team members below */}
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.slice(1).map((member, i) => (
-              <TeamCard key={member.name} {...member} delay={(i + 1) * 80} />
-            ))}
           </div>
         </div>
       </section>
